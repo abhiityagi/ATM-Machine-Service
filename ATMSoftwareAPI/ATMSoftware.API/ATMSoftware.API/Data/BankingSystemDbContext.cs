@@ -9,7 +9,7 @@ namespace ATMSoftware.API.Data
         {
         }
         public DbSet<CustomerData> CustomersData { get; set; }
-        public DbSet<Transactions> TransactionsData { get; set; }
+        public DbSet<Transaction> TransactionRecord { get; set; }
 
     }
 }

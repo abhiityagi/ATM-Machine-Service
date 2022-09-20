@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ATMSoftware.API.Migrations
 {
     [DbContext(typeof(BankingSystemDbContext))]
-    [Migration("20220918080653_Second Migration")]
+    [Migration("20220919082939_Second Migration")]
     partial class SecondMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,7 +50,7 @@ namespace ATMSoftware.API.Migrations
                     b.ToTable("CustomersData");
                 });
 
-            modelBuilder.Entity("ATMSoftware.API.Models.Transactions", b =>
+            modelBuilder.Entity("ATMSoftware.API.Models.Transaction", b =>
                 {
                     b.Property<int>("TransactionId")
                         .ValueGeneratedOnAdd()
@@ -61,18 +61,21 @@ namespace ATMSoftware.API.Migrations
                     b.Property<long>("AccountNumber")
                         .HasColumnType("bigint");
 
+                    b.Property<float>("AmountTransfer")
+                        .HasColumnType("real");
+
                     b.Property<string>("BranchName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<long>("RecipientAccountNumber")
                         .HasColumnType("bigint");
 
-                    b.Property<float>("TransferAmount")
-                        .HasColumnType("real");
-
                     b.HasKey("TransactionId");
 
-                    b.ToTable("TransactionsData");
+                    b.ToTable("TransactionRecord");
                 });
 #pragma warning restore 612, 618
         }

@@ -16,11 +16,11 @@ namespace ATMSoftware.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllCustomers()
+        public async Task<IActionResult> GetAllTransactions()
         {
-            var customers = await _bankingSystemDbContext.CustomersData.ToListAsync();
+            var transactions = await _bankingSystemDbContext.TransactionRecord.ToListAsync();
 
-            return Ok(customers);
+            return Ok(transactions);
         }
 
         [HttpPost]

@@ -48,7 +48,7 @@ namespace ATMSoftware.API.Migrations
                     b.ToTable("CustomersData");
                 });
 
-            modelBuilder.Entity("ATMSoftware.API.Models.Transactions", b =>
+            modelBuilder.Entity("ATMSoftware.API.Models.Transaction", b =>
                 {
                     b.Property<int>("TransactionId")
                         .ValueGeneratedOnAdd()
@@ -59,18 +59,21 @@ namespace ATMSoftware.API.Migrations
                     b.Property<long>("AccountNumber")
                         .HasColumnType("bigint");
 
+                    b.Property<float>("AmountTransfer")
+                        .HasColumnType("real");
+
                     b.Property<string>("BranchName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<long>("RecipientAccountNumber")
                         .HasColumnType("bigint");
 
-                    b.Property<float>("TransferAmount")
-                        .HasColumnType("real");
-
                     b.HasKey("TransactionId");
 
-                    b.ToTable("TransactionsData");
+                    b.ToTable("TransactionRecord");
                 });
 #pragma warning restore 612, 618
         }
